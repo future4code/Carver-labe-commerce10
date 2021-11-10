@@ -1,17 +1,31 @@
 import React from "react";
 import styled from "styled-components";
+import ProdutosCard from "./ProdutosCard";
 
-const Produtos = styled.div`
-  border: 1px solid black;
+const BoxProdutos = styled.div`
+    border: 3px solid purple;
+    display: grid;
+    align-items: stretch;
+    width: 99%;
+    height: 99vh;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    justify-items: center;
+    margin: 0;
 `;
 
-export default class produtos extends React.Component {
+export default class Produtos extends React.Component {
   render() {
     return (
       <div>
-        <Produtos>
-          <h1>Ola</h1>
-        </Produtos>
+        <BoxProdutos>
+          <ProdutosCard/>
+          <ProdutosCard/>
+          <ProdutosCard/>
+          <ProdutosCard/>
+          <ProdutosCard/>
+          <ProdutosCard/>
+        </BoxProdutos>
       </div>
     );
   }
