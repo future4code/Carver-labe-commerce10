@@ -3,7 +3,7 @@ import styled from "styled-components";
 import ProdutosCard from "./ProdutosCard";
 
 const BoxProdutos = styled.div`
-    border: 1px solid blue;
+    /* border: 1px solid blue;c */
     display: flex;
     justify-items:center;
 

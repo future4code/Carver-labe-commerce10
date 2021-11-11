@@ -1,8 +1,14 @@
 import React from 'react';
-import styled from "styled-components";
+import styled from 'styled-components';
+import fenix from './img/fenix.png';
+import athena from './img/athena.png';
+import cisne from './img/cisne.png';
+import andromeda from './img/andromeda.png';
+import pegaso from './img/pegaso.png';
+import venus from './img/venus.png';
 
 const BoxDiv = styled.div`
-    border: 1px solid pink;
+    /* border: 1px solid pink; */
     display: grid;
     width: 100%;
     height: 100%;
@@ -13,20 +19,21 @@ const BoxDiv = styled.div`
 `;
 
 const Cards = styled.div`
-    background-color: #8e47ef;
+    background-color: #ffffff;
     display: grid;
     grid-template-rows: 1fr 30px;
     grid-template-columns: auto; 
     width: 200px;
     justify-items: center;
     border-radius:10px;
-    box-shadow: 1px 1px 5px gray;
+    box-shadow: 1px 1px 5px #625834;
     margin:10% 0% 10%;
 
     p{ 
         align-self: center;
        font-size :15px ;
        margin: 0 10px;
+
     }
     button{
         background-color: #71b810;
@@ -50,12 +57,12 @@ const Cards = styled.div`
 export default class ProdutosCard extends React.Component {
   state = {
       listaDeProdutos: [
-      {id:1, nome:"Cristal de Fênix ", valor:235},
-      {id:2, nome:"Cristal de Athena", valor:390},
-      {id:3, nome:"Cristal de Cisne", valor:550},
-      {id:4, nome:"Cristal de Andrômeda", valor: 970},
-      {id:5, nome:"Cristal de Pégaso", valor:895},
-      {id:6, nome:"Cristal de Vênus", valor:995},
+      {id:1, imagem:<img src={fenix}/>, nome:"Cristal de Fênix ", valor:235},
+      {id:2, imagem:<img src={athena}/>, nome:"Cristal de Athena", valor:390},
+      {id:3, imagem:<img src={cisne}/>, nome:"Cristal de Cisne", valor:550},
+      {id:4, imagem:<img src={andromeda}/>, nome:"Cristal de Andrômeda", valor: 970},
+      {id:5, imagem:<img src={pegaso}/>, nome:"Cristal de Pégaso", valor:895},
+      {id:6, imagem:<img src={venus}/>, nome:"Cristal de Vênus", valor:995},
     ]
   }
 
@@ -68,11 +75,10 @@ export default class ProdutosCard extends React.Component {
 
   render() {
     const listaComponentes = this.state.listaDeProdutos.map((produtos)=> {
-
     return (
         <Cards key={produtos.id}>
-          <img src="https://picsum.photos/200/300" alt="foto" />
-          <p>{produtos.nome}</p>
+          {produtos.imagem}
+          {produtos.nome}
           <p>R$:{produtos.valor}</p>
           <button>Adicionar</button>
         </Cards>
