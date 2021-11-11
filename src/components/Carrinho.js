@@ -2,13 +2,10 @@ import React from "react";
 import styled from "styled-components";
 
 const BoxProdutos = styled.div`
-  border: 3px solid yellow;
-  /* display: flex;
-  flex-direction: column; */
-  width: 100%;
+  border: 1px solid yellow;
+  background-color:#a979fc;
   height: 85vh;
-  margin: 0;
-  
+
 `
 
 export default class Carrinho extends React.Component {
@@ -16,7 +13,7 @@ export default class Carrinho extends React.Component {
     return (
       <div>
         <BoxProdutos>
-          <h1>Ola</h1>
+          <h1>Olá</h1>
           <h1>Carrinho</h1>
         </BoxProdutos>
       </div>
