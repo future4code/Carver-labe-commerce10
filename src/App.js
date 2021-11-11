@@ -1,9 +1,9 @@
 import React from "react";
 import Filtros from "./components/Filtros";
-import Produtos from "./components/produtos/Produtos";
+import Produtos from "./components/produtos/produtos";
 import Carrinho from "./components/Carrinho";
 import styled from "styled-components";
-import ProdutosCard from "./components/produtos/ProdutosCard";
+import ProdutosCard from "./components/produtos/produtosCard";
 // import fundo1 from "./components/produtos/img/fundo1.png"
 
 const ContainerMain = styled.div`
