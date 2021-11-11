@@ -7,21 +7,23 @@ import ProdutosCard from "./components/produtos/ProdutosCard";
 
 const ContainerMain = styled.div`
   border: 1px solid red;
+  background-color: #ffffff;
   display: flex;
   justify-content: space-between;
-  padding: 10px;
-  height: 100vh;
-  width: 97vw;
-  gap: 10px;
+  padding: 1vh;
+  height: 97.7vh;
+  width: 98.88vw;
+  gap: 0.5%;
 `;
 const ContainerDivProduto = styled.div`
-  width: 49%;
+  width: 90%;
+  height: 43.8vw;
   margin: 0;
   border: 1px solid black;
 `;
 
 const ContainerDiv = styled.div`
-  width: 24%;
+  width: 20vw;
   margin: 0;
 `;
 
@@ -34,9 +36,7 @@ export default class App extends React.Component {
         </ContainerDiv>
         <ContainerDivProduto>
           <Produtos>
-              <ProdutosCard>
-                produtos
-              </ProdutosCard>
+            <ProdutosCard/>
           </Produtos>
         </ContainerDivProduto>
         <ContainerDiv>

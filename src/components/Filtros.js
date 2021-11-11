@@ -2,13 +2,8 @@ import React from "react";
 import styled from "styled-components";
 
 const BoxFiltros = styled.div`
-  border: 3px solid green;
-  /* display: flex;
-  flex-direction: column; */
-  width: 100%;
+  border: 1px solid green;
   height: 85vh;
-  margin: 0;
- 
 `
 
 export default class Filtros extends React.Component {
