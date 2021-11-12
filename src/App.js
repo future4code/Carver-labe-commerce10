@@ -3,17 +3,21 @@ import ListaDeProdutos from "./components/produtos/produtos.json"
 import Body1 from "./components/body/body"
 import Filtros from "./components/filtros/filtros"
 import Carrinho from "./components/carrinho/carrinho"
+import ProdutosCard from "./components/produtosCard/produtosCard"
+import {ContainerBody} from "./components/body/styled"
 import {Container, ContainerDivProduto, ContainerDiv} from './styled'
 
 
 
 export default class App extends React.Component {
   state = {
+    sorteandoPara:'nome',
     produtos: ListaDeProdutos,
     precoMax: null,
     precoMin: null,
     nomeProduto:'',
     quantidadeProduto:null,
+    sequencia: 1,
     buscar: '',
     carrinho: [
       {
@@ -44,6 +48,12 @@ export default class App extends React.Component {
       buscar: ev.target.value
     })
   }
+
+  updateSorteandoPara =(ev) =>{
+    this.setState({
+      sorteandoPara: ev.target.value
+    })
+  } 
 
   adicionaCarrinho = (ev) => {
     let produtoId = this.state.produtos.filter((produto)=>{
@@ -78,10 +88,42 @@ export default class App extends React.Component {
     return valorTotal
   }
 
+  
+
   render() {
+    const itens = this.state.produtos
+            .filter(produto => {
+              return produto.nome.toLowerCase().includes(this.state.buscar.toLowerCase())
+            })
+            .filter(produto => {
+                return this.state.precoMin === "" || produto.valor >= this.state.precoMin
+            })
+            .filter(produto => {
+                return this.state.precoMax === "" || produto.valor <= this.state.precoMax
+            })
+            .sort((produtoA, produtoB) => {
+              if(this.state.sorteandoPara === 'nome'){
+              return this.state.sequencia * produtoA.nome.localeCompare(produtoB.nome)
+            }else{
+                return this.state.sequencia * (produtoA.value - produtoB.value)}
+            })
+            .map((produto => {
+                return (
+                     <ProdutosCard key={produto.id} produto={produto}/>
+                )
+            }))
+
+            
+            // var novaListaItens = () => {
+            //   var novaLista = [...this.state.produtos]
+            //   novaLista.push(itens)
+            // }
+
+        
     return (
       <Container>
-        <Filtros 
+        <Filtros
+        produto={this.state.produtos}
         buscar={this.state.buscar}
         precoMax={this.state.precoMax}
         precoMin={this.state.precoMin}
@@ -90,12 +132,21 @@ export default class App extends React.Component {
         updatePrecoMin={this.updatePrecoMin}
         adicionaCarrinho={this.adicionaCarrinho}
         produtoNoCarrinho={this.produtoNoCarrinho}
-        />
+        novaListaItens={itens}
+         />
+
         <Body1
-        id={this.state.id}
+        id={this.state.produtos.id}
         parametro={this.parametro}
         />
-        <Carrinho/>
+        <Carrinho
+        adicionaCarrinho = {this.adicionaCarrinho}
+        produtoNoCarrinho = {this.produtoNoCarrinho}
+        />
+
+
+
+
       </Container>
     )
   }
