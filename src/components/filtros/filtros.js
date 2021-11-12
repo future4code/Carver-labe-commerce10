@@ -1,8 +1,8 @@
 import React from 'react'
-import {ContainerFiltro} from './style'
+import {ContainerFiltro} from './styled'
 
 
-export default function Filtro(props){
+export default function Filtros(props){
     return(
         <ContainerFiltro>
             <h1>

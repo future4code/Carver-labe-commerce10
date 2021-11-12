@@ -1,0 +1,38 @@
+import React from 'react'
+import Produtos from '../produtos/produtos.json'
+import ProdutosCard from '../produtosCard/produtosCard'
+import {ContainerBody, Header, ContainerCards, ContainerQuantidade} from'./styled'
+
+
+export default class Body1 extends React.Component {
+    state = {
+        produtos: Produtos,
+    }
+
+    render() {
+        return(
+            <ContainerBody>
+                <Header>
+                    <h2>Quantidade de Produtos: {this.state.produtos.length}</h2>
+                    <ContainerQuantidade>
+                        <label>Ordenação</label>
+                        <select>
+                            <option>Crescente</option>
+                            <option>Decrescente</option>
+                        </select>
+                    </ContainerQuantidade>
+                </Header>
+            <ContainerCards>
+            {this.state.produtos.map(produto =>{
+                return(
+                <ProdutosCard 
+                key={produto.id} 
+                produto={produto} 
+                />
+                )
+            })}
+            </ContainerCards>
+            </ContainerBody>
+        )
+    }
+}

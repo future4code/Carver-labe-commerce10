@@ -1,5 +1,5 @@
 import React from 'react'
-import {ContainerCarrinho} from './style'
+import {ContainerCarrinho} from './styled'
 
 
 export default class Carrinho extends React.Component{
