@@ -2,7 +2,7 @@ import React from "react";
 import Body1 from "./components/body/body"
 import Filtros from "./components/filtros/filtros"
 import Carrinho from "./components/carrinho/carrinho"
-import {Container} from './styled'
+import {Container, ContainerDivProduto, ContainerDiv} from './styled'
 
 
 

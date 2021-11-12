@@ -29,8 +29,7 @@ export const Cards = styled.div`
 
     }
     img{
-        height: 150px;
-        width: 100%;
+        height: 151px;
         border-radius:10px 10px 0px 0px;
     }
 
