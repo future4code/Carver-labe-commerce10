@@ -1,3 +1,5 @@
+<<<<<<< HEAD
+=======
 import React from "react";
 import Filtros from "./components/Filtros";
 import Produtos from "./components/produtos/produtos";
@@ -51,3 +53,4 @@ export default class App extends React.Component {
     );
   }
 }
+>>>>>>> master

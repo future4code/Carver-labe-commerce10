@@ -1,0 +1,38 @@
+[
+    {
+        "id":1, 
+        "imagem":"#", 
+        "nome":"Cristal de Fênix ", 
+        "valor":235
+        },
+      {
+          "id":2, 
+          "imagem":"#", 
+          "nome":"Cristal de Athena", 
+          "valor":390},
+      {
+          "id":3, 
+          "imagem":"#", 
+          "nome":"Cristal de Cisne", 
+          "valor":550
+        },
+      {
+          "id":4, 
+          "imagem":"#", 
+          "nome":"Cristal de Andrômeda", 
+          "valor": 970
+        },
+      {
+          "id":5, 
+          "imagem":"#", 
+          "nome":"Cristal de Pégaso", 
+          "valor":895
+        },
+      {
+          "id":6, 
+          "imagem":"#", 
+          "nome":"Cristal de Vênus", 
+          "valor":995
+        }
+]
+
