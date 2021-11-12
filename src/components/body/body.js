@@ -1,12 +1,13 @@
 import React from 'react'
-import Produtos from '../produtos/produtos.json'
+import ListaDeProdutos from '../produtos/produtos.json'
 import ProdutosCard from '../produtosCard/produtosCard'
 import {ContainerBody, Header, ContainerCards, ContainerQuantidade, HeaderQuantidade} from'./styled'
 
 
 export default class Body1 extends React.Component {
     state = {
-        produtos: Produtos,
+        produtos: ListaDeProdutos,
+        buscar: this.props.buscar
     }
 
     render() {
@@ -28,7 +29,7 @@ export default class Body1 extends React.Component {
             <ContainerCards>
             {this.state.produtos.map(produto =>{
                 return(
-                <ProdutosCard 
+                <ProdutosCard
                 key={produto.id} 
                 produto={produto} 
                 />

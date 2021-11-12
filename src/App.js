@@ -1,4 +1,5 @@
 import React from "react";
+import ListaDeProdutos from "./components/produtos/produtos.json"
 import Body1 from "./components/body/body"
 import Filtros from "./components/filtros/filtros"
 import Carrinho from "./components/carrinho/carrinho"
@@ -8,29 +9,73 @@ import {Container, ContainerDivProduto, ContainerDiv} from './styled'
 
 export default class App extends React.Component {
   state = {
-    parametro: 'produtos',
-    precoMax:'',
-    precoMin:'',
+    produtos: ListaDeProdutos,
+    precoMax: null,
+    precoMin: null,
     nomeProduto:'',
+    quantidadeProduto:null,
     buscar: '',
-    id: ''
+    carrinho: [
+      {
+      quantidade:1,
+      produto:{
+        id:'', 
+        imagem:'', 
+        nome:'', 
+        valor:''
+      }
+      }
+    ]
   }
-  updatePrecoMin = (id) => {
+  updatePrecoMin = (ev) => {
     this.setState({
-      precoMin: id.target.value
+      precoMin: ev.target.value
     })
     
   }
-  updatePrecoMax = (id) => {
+  updatePrecoMax = (ev) => {
     this.setState({
-      precoMax: id.target.value
+      precoMax: ev.target.value
     })
     
   }
-  updateBuscar = (id) => {
+  updateBuscar = (ev) => {
     this.setState({
-      buscar: id.target.value
+      buscar: ev.target.value
     })
+  }
+
+  adicionaCarrinho = (ev) => {
+    let produtoId = this.state.produtos.filter((produto)=>{
+      return produto.id === ev.target.value
+    })
+    let controle =0;
+    let carrinhoCheio = this.state.carrinho.map((carrinho)=>{
+      if(carrinho.produto.id === ev.target.value){
+        carrinhoCheio.quantidade++
+        controle++
+      }
+      return carrinho
+    })
+
+    if(controle === 0){
+      this.setState({
+        carrinho: [...this.state.carrinho, {quantidade:1, produto: produtoId[0]}]
+
+      })
+    }else{
+      this.setState({
+        carrinho:carrinhoCheio
+      })
+    }
+  }
+
+  produtoNoCarrinho =()=>{
+    let total = 0
+    let valorTotal = this.state.carrinho.map((select)=>{
+      total = (parseFloat(select.produto.valor) * parseFloat(select.quantidade )) + valorTotal
+    })
+    return valorTotal
   }
 
   render() {
@@ -43,6 +88,8 @@ export default class App extends React.Component {
         updateBuscar={this.updateBuscar}
         updatePrecoMax={this.updatePrecoMax}
         updatePrecoMin={this.updatePrecoMin}
+        adicionaCarrinho={this.adicionaCarrinho}
+        produtoNoCarrinho={this.produtoNoCarrinho}
         />
         <Body1
         id={this.state.id}
