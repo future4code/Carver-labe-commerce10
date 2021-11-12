@@ -1,7 +1,7 @@
 import React from 'react'
-import Produtos from '../../produtos/produtos.json'
+import Produtos from '../produtos/produtos.json'
 import ProdutosCard from '../produtosCard/produtosCard'
-import {ContainerBody, Header, ContainerCards} from'.styled'
+import {ContainerBody, Header, ContainerCards, ContainerQuantidade} from'.styled'
 
 
 export default class Body extends React.Component {
@@ -14,13 +14,13 @@ export default class Body extends React.Component {
             <ContainerBody>
                 <Header>
                     <h2>Quantidade de Produtos: {this.state.produtos.length}</h2>
-                    <div>
+                    <ContainerQuantidade>
                         <label>Ordenação</label>
                         <select>
                             <option>Crescente</option>
                             <option>Decrescente</option>
                         </select>
-                    </div>
+                    </ContainerQuantidade>
                 </Header>
             <ContainerCards>
             {this.state.Produtos.map(produto =>{

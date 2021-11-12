@@ -18,5 +18,8 @@ grid-gap: 10px;
 
 `
 export const ContainerQuantidade = styled.div`
-
+display:flex;
+label{
+    margin: 0 10px;
+}
 `

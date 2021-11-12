@@ -1,8 +1,8 @@
 import React from "react";
-import body from "./components/body/body"
-import filtros from "./components/filtros/filtros"
-import carrinho from "./components/carrinho/carrinho"
-import {} from './styled'
+import Body from "./components/body/body"
+import Filtros from "./components/filtros/filtros"
+import Carrinho from "./components/carrinho/carrinho"
+import {Container} from './styled'
 
 
 
@@ -36,8 +36,7 @@ export default class App extends React.Component {
   render() {
     return (
       <Container>
-        <filtros/>
-        <div 
+        <Filtros 
         buscar={this.state.buscar}
         precoMax={this.state.precoMax}
         precoMin={this.state.precoMin}
@@ -45,11 +44,11 @@ export default class App extends React.Component {
         updatePrecoMax={this.updatePrecoMax}
         updatePrecoMin={this.updatePrecoMin}
         />
-        <div
+        <Body
         id={this.state.id}
         parametro={this.parametro}
         />
-        <carrinho/>
+        <Carrinho/>
       </Container>
     )
   }
