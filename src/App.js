@@ -1,5 +1,5 @@
 import React from "react";
-import Body from "./components/body/body"
+import Body1 from "./components/body/body"
 import Filtros from "./components/filtros/filtros"
 import Carrinho from "./components/carrinho/carrinho"
 import {Container} from './styled'
@@ -44,7 +44,7 @@ export default class App extends React.Component {
         updatePrecoMax={this.updatePrecoMax}
         updatePrecoMin={this.updatePrecoMin}
         />
-        <Body
+        <Body1
         id={this.state.id}
         parametro={this.parametro}
         />
