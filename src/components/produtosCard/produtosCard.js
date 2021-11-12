@@ -9,7 +9,7 @@ export default function ProdutosCard(props){
             <img src={props.produto.imagem}/>
             <p>{props.produto.nome}</p>
             <p>R$: {props.produto.valor}</p>
-            <button>Adicionar ao Carrinho</button>
+            <button value={props.produto.id} onClick={props.adicionaCarrinho}>Adicionar ao Carrinho</button>
         </Cards>
     )
 }
